@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'DESaccess'
+project = 'DESaccess Docs'
 copyright = ''
 author = 'DES Labs Team'
 
@@ -97,6 +97,8 @@ html_style = 'css/custom.css'
 # html_additional_pages = {
 #     'api/index': 'api/index.html',
 # }
+
+html_logo = 'images/DESDM_logo.png'
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
