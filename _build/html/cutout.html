@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Cutout Service &mdash; DESaccess  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> DESaccess
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="apps.html">DESaccess Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Example Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DESaccess</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Cutout Service</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/cutout.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cutout-service">
+<h1>Cutout Service<a class="headerlink" href="#cutout-service" title="Permalink to this headline">¶</a></h1>
+<p>The Cutout Service allows you to download raw or color image data based
+on input coordinates and areal dimensions.</p>
+<p>Select the data release tag associated with the data set you wish
+to access. In the text box, enter the positions in the sky that
+designate the centers of your cutout images in the form of a
+CSV-formatted table, with a header row naming the table columns
+for subsequent lines. Each position must be specified using either
+RA/DEC sky coordinates or Coadd tile ID. Columns can be in any
+order. Omitted values will be set to the default parameter values
+you specify using the other form elements as described below.</p>
+<p>This example shows all possible columns you can include:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RA</span><span class="p">,</span><span class="n">DEC</span><span class="p">,</span><span class="n">COADD_OBJECT_ID</span><span class="p">,</span><span class="n">XSIZE</span><span class="p">,</span><span class="n">YSIZE</span><span class="p">,</span><span class="n">COLORS_FITS</span><span class="p">,</span><span class="n">RGB_STIFF_COLORS</span><span class="p">,</span><span class="n">RGB_LUPTON_COLORS</span><span class="p">,</span><span class="n">RGB_MINIMUM</span><span class="p">,</span><span class="n">RGB_STRETCH</span><span class="p">,</span><span class="n">RGB_ASINH</span><span class="p">,</span><span class="n">MAKE_FITS</span><span class="p">,</span><span class="n">MAKE_RGB_STIFF</span><span class="p">,</span><span class="n">MAKE_RGB_LUPTON</span>
+<span class="mf">46.275669</span><span class="p">,</span><span class="o">-</span><span class="mf">34.256000</span><span class="p">,,</span><span class="mf">0.90</span><span class="p">,</span><span class="mf">1.30</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">gry</span><span class="p">;</span><span class="n">riy</span><span class="p">,,,,,</span><span class="n">true</span><span class="p">,</span><span class="n">false</span><span class="p">,</span><span class="n">true</span>
+<span class="p">,,</span><span class="mi">61407409</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="n">z</span><span class="p">,,</span><span class="n">riy</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">40.0</span><span class="p">,</span><span class="mf">11.0</span><span class="p">,</span><span class="n">true</span><span class="p">,,</span><span class="n">true</span>
+</pre></div>
+</div>
+<p>This example shows the minimum columns you must include when
+specifying positions only by coordinates:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RA</span><span class="p">,</span><span class="n">DEC</span>
+<span class="mf">46.275669</span><span class="p">,</span><span class="o">-</span><span class="mf">34.256000</span>
+</pre></div>
+</div>
+<p>or only by Coadd ID</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COADD_OBJECT_ID</span>
+<span class="mi">61407409</span>
+<span class="mi">61407435</span>
+</pre></div>
+</div>
+<p>Select the FITS format to generate raw data files. You will
+generate one FITS file for each color band selected (if
+available).</p>
+<img alt="_images/cutout-fits.png" class="align-center" src="_images/cutout-fits.png" />
+<p>Select one or both of the color image formats to generate files
+suitable for visual inspection. Two color rendering methods are
+offered: <strong>STIFF</strong> and <strong>Lupton</strong>.</p>
+<p>Exactly three color bands must be selected. To change the default
+selection, first deselect some bands to enable selection of the
+ones you want.</p>
+<img alt="_images/cutout-color-image.png" class="align-center" src="_images/cutout-color-image.png" />
+<p>The areal dimensions of the requested cutout images are specified
+in units of arcminutes.</p>
+<p>You may optionally include <strong>XSIZE</strong> and <strong>YSIZE</strong> columns in the
+positions CSV-formatted text if you wish to request different
+areal dimensions for each requested cutout.</p>
+<img alt="_images/cutout-size.png" class="align-center" src="_images/cutout-size.png" />
+<p>Specifying a custom job name can help make it easier to filter the
+job list on the <strong>Job Status</strong> page to find one or more jobs.</p>
+<p>To be notified when your job is complete, select the <strong>Email when
+Complete</strong> option and ensure that the email address is correct.</p>
+<img alt="_images/cutout-options.png" class="align-center" src="_images/cutout-options.png" />
+<p>When a cutout job is complete, there are three files generated:
+<code class="docutils literal notranslate"><span class="pre">cutout_[JOB_ID].log</span></code>, <code class="docutils literal notranslate"><span class="pre">positions_[JOB_ID].csv</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">summary.json</span></code>. The first two files contain the log output and a
+CSV-formatted table of the processed positions table, which is
+synthesized from the hierarchical compilation of the input
+CSV-formatted positions table, then the default parameter values
+specified by the user, and then the system defaults. The
+<code class="docutils literal notranslate"><span class="pre">summary.json</span></code> file contains the complete set of information
+about the job results in a format amenable to both programmatic
+parsing and human readability. The following is an example of this
+file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;options&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;colors_fits&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;db&quot;</span><span class="p">:</span> <span class="s2">&quot;DESDR&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;jobid&quot;</span><span class="p">:</span> <span class="s2">&quot;27ddedf1ba3646a8b552cb0718290331&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;make_fits&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+      <span class="s2">&quot;make_rgb_lupton&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+      <span class="s2">&quot;make_rgb_stiff&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+      <span class="s2">&quot;release&quot;</span><span class="p">:</span> <span class="s2">&quot;DR1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;rgb_lupton_colors&quot;</span><span class="p">:</span> <span class="s2">&quot;izy&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;rgb_stiff_colors&quot;</span><span class="p">:</span> <span class="s2">&quot;riz&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;jtest&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;xsize&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+      <span class="s2">&quot;ysize&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+      <span class="s2">&quot;tiledir&quot;</span><span class="p">:</span> <span class="s2">&quot;auto&quot;</span>
+   <span class="p">},</span>
+   <span class="s2">&quot;cutouts&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+      <span class="s2">&quot;RA&quot;</span><span class="p">:</span> <span class="mf">21.58813</span><span class="p">,</span>
+      <span class="s2">&quot;DEC&quot;</span><span class="p">:</span> <span class="mf">3.48611</span><span class="p">,</span>
+      <span class="s2">&quot;COADD_OBJECT_ID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">&quot;XSIZE&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span>
+      <span class="s2">&quot;YSIZE&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
+      <span class="s2">&quot;FITS_COLORS&quot;</span><span class="p">:</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_STIFF_COLORS&quot;</span><span class="p">:</span> <span class="s2">&quot;gry;riy&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_LUPTON_COLORS&quot;</span><span class="p">:</span> <span class="s2">&quot;gry&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_MINIMUM&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_STRETCH&quot;</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_ASINH&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+      <span class="s2">&quot;MAKE_FITS&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+      <span class="s2">&quot;MAKE_RGB_STIFF&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+      <span class="s2">&quot;MAKE_RGB_LUPTON&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+      <span class="s2">&quot;COLORS_FITS&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;POSITION_TYPE&quot;</span><span class="p">:</span> <span class="s2">&quot;coord&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RA_ADJUSTED&quot;</span><span class="p">:</span> <span class="mf">21.58813</span><span class="p">,</span>
+      <span class="s2">&quot;FILES&quot;</span><span class="p">:</span> <span class="p">[</span>
+         <span class="s2">&quot;DESJ012621.1512+032909.9960_y.fits&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;DESJ012621.1512+032909.9960_g.fits&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;DESJ012621.1512+032909.9960_r.fits&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;DESJ012621.1512+032909.9960_i.fits&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;DESJ012621.1512+032909.9960_gry_stiff.png&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;DESJ012621.1512+032909.9960_riy_stiff.png&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;DESJ012621.1512+032909.9960_gry_lupton.png&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;TILEDIR&quot;</span><span class="p">:</span> <span class="s2">&quot;/des003/desarchive/multiepoch/Y3A1/r2624/DES0126+0335/p01/coadd/&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;TILENAME&quot;</span><span class="p">:</span> <span class="s2">&quot;DES0126+0335&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;SEXAGECIMAL&quot;</span><span class="p">:</span> <span class="s2">&quot;DESJ012621.1512+032909.9960&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ALPHAWIN_J2000&quot;</span><span class="p">:</span> <span class="mf">21.58813</span><span class="p">,</span>
+      <span class="s2">&quot;DELTAWIN_J2000&quot;</span><span class="p">:</span> <span class="mf">3.48611</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+      <span class="s2">&quot;RA&quot;</span><span class="p">:</span> <span class="mf">21.57213</span><span class="p">,</span>
+      <span class="s2">&quot;DEC&quot;</span><span class="p">:</span> <span class="mf">3.78611</span><span class="p">,</span>
+      <span class="s2">&quot;COADD_OBJECT_ID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">&quot;XSIZE&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+      <span class="s2">&quot;YSIZE&quot;</span><span class="p">:</span> <span class="mf">1.3</span><span class="p">,</span>
+      <span class="s2">&quot;FITS_COLORS&quot;</span><span class="p">:</span> <span class="s2">&quot;rg&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_STIFF_COLORS&quot;</span><span class="p">:</span> <span class="s2">&quot;gry;riy&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_LUPTON_COLORS&quot;</span><span class="p">:</span> <span class="s2">&quot;gry&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_MINIMUM&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_STRETCH&quot;</span><span class="p">:</span> <span class="mf">50.0</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_ASINH&quot;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">,</span>
+      <span class="s2">&quot;MAKE_FITS&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+      <span class="s2">&quot;MAKE_RGB_STIFF&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+      <span class="s2">&quot;MAKE_RGB_LUPTON&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+      <span class="s2">&quot;COLORS_FITS&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;POSITION_TYPE&quot;</span><span class="p">:</span> <span class="s2">&quot;coord&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RA_ADJUSTED&quot;</span><span class="p">:</span> <span class="mf">21.57213</span><span class="p">,</span>
+      <span class="s2">&quot;FILES&quot;</span><span class="p">:</span> <span class="p">[</span>
+         <span class="s2">&quot;DESJ012617.3112+034709.9960_y.fits&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;DESJ012617.3112+034709.9960_g.fits&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;DESJ012617.3112+034709.9960_r.fits&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;DESJ012617.3112+034709.9960_i.fits&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;DESJ012617.3112+034709.9960_gry_stiff.png&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;DESJ012617.3112+034709.9960_riy_stiff.png&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;TILEDIR&quot;</span><span class="p">:</span> <span class="s2">&quot;/des003/desarchive/multiepoch/Y3A1/r2624/DES0126+0335/p01/coadd/&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;TILENAME&quot;</span><span class="p">:</span> <span class="s2">&quot;DES0126+0335&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;SEXAGECIMAL&quot;</span><span class="p">:</span> <span class="s2">&quot;DESJ012617.3112+034709.9960&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ALPHAWIN_J2000&quot;</span><span class="p">:</span> <span class="mf">21.57213</span><span class="p">,</span>
+      <span class="s2">&quot;DELTAWIN_J2000&quot;</span><span class="p">:</span> <span class="mf">3.78611</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+      <span class="s2">&quot;RA&quot;</span><span class="p">:</span> <span class="mf">46.29566</span><span class="p">,</span>
+      <span class="s2">&quot;DEC&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">34.256</span><span class="p">,</span>
+      <span class="s2">&quot;COADD_OBJECT_ID&quot;</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+      <span class="s2">&quot;XSIZE&quot;</span><span class="p">:</span> <span class="mf">0.9</span><span class="p">,</span>
+      <span class="s2">&quot;YSIZE&quot;</span><span class="p">:</span> <span class="mf">1.3</span><span class="p">,</span>
+      <span class="s2">&quot;FITS_COLORS&quot;</span><span class="p">:</span> <span class="s2">&quot;iz&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_STIFF_COLORS&quot;</span><span class="p">:</span> <span class="s2">&quot;gry;riy&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_LUPTON_COLORS&quot;</span><span class="p">:</span> <span class="s2">&quot;gry&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_MINIMUM&quot;</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_STRETCH&quot;</span><span class="p">:</span> <span class="mf">60.0003</span><span class="p">,</span>
+      <span class="s2">&quot;RGB_ASINH&quot;</span><span class="p">:</span> <span class="mf">11.12</span><span class="p">,</span>
+      <span class="s2">&quot;MAKE_FITS&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+      <span class="s2">&quot;MAKE_RGB_STIFF&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+      <span class="s2">&quot;MAKE_RGB_LUPTON&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+      <span class="s2">&quot;COLORS_FITS&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;POSITION_TYPE&quot;</span><span class="p">:</span> <span class="s2">&quot;coord&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;RA_ADJUSTED&quot;</span><span class="p">:</span> <span class="mf">46.29566</span><span class="p">,</span>
+      <span class="s2">&quot;FILES&quot;</span><span class="p">:</span> <span class="p">[</span>
+         <span class="s2">&quot;DESJ030510.9584-341521.6000_y.fits&quot;</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;TILEDIR&quot;</span><span class="p">:</span> <span class="s2">&quot;/des003/desarchive/multiepoch/Y3A1/r2674/DES0305-3415/p01/coadd/&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;TILENAME&quot;</span><span class="p">:</span> <span class="s2">&quot;DES0305-3415&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;SEXAGECIMAL&quot;</span><span class="p">:</span> <span class="s2">&quot;DESJ030510.9584-341521.6000&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ALPHAWIN_J2000&quot;</span><span class="p">:</span> <span class="mf">46.29566</span><span class="p">,</span>
+      <span class="s2">&quot;DELTAWIN_J2000&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">34.256</span>
+      <span class="p">}</span>
+   <span class="p">],</span>
+   <span class="s2">&quot;query_time&quot;</span><span class="p">:</span> <span class="s2">&quot;0.32&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;unmatched_positions&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;coord&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;RA&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="s2">&quot;DEC&quot;</span><span class="p">:</span> <span class="p">[]</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;coadd&quot;</span><span class="p">:</span> <span class="p">[]</span>
+   <span class="p">},</span>
+   <span class="s2">&quot;processing_time&quot;</span><span class="p">:</span> <span class="s2">&quot;48.07&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;size_on_disk&quot;</span><span class="p">:</span> <span class="s2">&quot;6.08 MB&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;number_of_files&quot;</span><span class="p">:</span> <span class="mi">14</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

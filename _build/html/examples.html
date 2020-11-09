@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Example Scripts &mdash; DESaccess  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Documentation" href="api.html" />
+    <link rel="prev" title="DESaccess Apps" href="apps.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> DESaccess
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="apps.html">DESaccess Apps</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Example Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#jupyter-notebooks">Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-job-files">Download job files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DESaccess</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Example Scripts</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="example-scripts">
+<h1>Example Scripts<a class="headerlink" href="#example-scripts" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="jupyter-notebooks">
+<h2>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="_static/DESaccess_API_example.ipynb">DESaccess API Examples</a></li>
+</ul>
+</div>
+<div class="section" id="download-job-files">
+<h2>Download job files<a class="headerlink" href="#download-job-files" title="Permalink to this headline">¶</a></h2>
+<p>The top level job output folder URL follows the form
+<code class="docutils literal notranslate"><span class="pre">https://des.ncsa.illinois.edu/files-desaccess/[username]/[job_type]/[job_id]/</span></code>.
+To download job files programmatically, append <code class="docutils literal notranslate"><span class="pre">/json</span></code> to this
+folder URL to fetch a JSON-formatted directory listing amenable to
+procedural tree traversal. For example, user <code class="docutils literal notranslate"><span class="pre">astrobuff</span></code> could
+write a Python script like this to download all cutout job output
+files from job <code class="docutils literal notranslate"><span class="pre">c39008aa52f54b9e94335b566743af0c</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">job_id</span> <span class="o">=</span> <span class="s1">&#39;c39008aa52f54b9e94335b566743af0c&#39;</span>
+<span class="n">job_type</span> <span class="o">=</span> <span class="s1">&#39;cutout&#39;</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;astrobuff&#39;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;https://des.ncsa.illinois.edu/desaccess/api&#39;</span>
+
+<span class="k">def</span> <span class="nf">download_job_files</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">outdir</span><span class="p">):</span>
+      <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+      <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/json&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+      <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">():</span>
+         <span class="k">if</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;directory&#39;</span><span class="p">:</span>
+            <span class="n">suburl</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+            <span class="n">subdir</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+            <span class="n">download_job_files</span><span class="p">(</span><span class="n">suburl</span><span class="p">,</span> <span class="n">subdir</span><span class="p">)</span>
+         <span class="k">elif</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;file&#39;</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span> <span class="n">item</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]),</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                  <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+      <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="n">job_url</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">base_url</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">job_type</span><span class="p">,</span> <span class="n">job_id</span><span class="p">)</span>
+<span class="n">download_dir</span> <span class="o">=</span> <span class="s1">&#39;./</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+<span class="n">download_job_files</span><span class="p">(</span><span class="n">job_url</span><span class="p">,</span> <span class="n">download_dir</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Files for job &quot;</span><span class="si">{}</span><span class="s1">&quot; downloaded to &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">job_id</span><span class="p">,</span> <span class="n">download_dir</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>generating a list of downloaded files like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">c39008aa52f54b9e94335b566743af0c</span><span class="o">/</span><span class="n">DES0226</span><span class="o">-</span><span class="mi">1541</span><span class="o">/</span><span class="n">DESJ022640</span><span class="o">.</span><span class="mi">4160</span><span class="o">-</span><span class="mf">154120.0040</span><span class="n">_irg_stiff</span><span class="o">.</span><span class="n">png</span>
+<span class="o">./</span><span class="n">c39008aa52f54b9e94335b566743af0c</span><span class="o">/</span><span class="n">DES0226</span><span class="o">-</span><span class="mi">1541</span><span class="o">/</span><span class="n">DESJ022640</span><span class="o">.</span><span class="mi">4160</span><span class="o">-</span><span class="mf">154120.0040</span><span class="n">_r</span><span class="o">.</span><span class="n">fits</span>
+<span class="o">./</span><span class="n">c39008aa52f54b9e94335b566743af0c</span><span class="o">/</span><span class="n">DES0226</span><span class="o">-</span><span class="mi">1541</span><span class="o">/</span><span class="n">DESJ022642</span><span class="o">.</span><span class="mi">8160</span><span class="o">-</span><span class="mf">153932.0040</span><span class="n">_g</span><span class="o">.</span><span class="n">fits</span>
+<span class="o">./</span><span class="n">c39008aa52f54b9e94335b566743af0c</span><span class="o">/</span><span class="n">DES0226</span><span class="o">-</span><span class="mi">1541</span><span class="o">/</span><span class="n">DESJ022642</span><span class="o">.</span><span class="mi">8160</span><span class="o">-</span><span class="mf">153932.0040</span><span class="n">_i</span><span class="o">.</span><span class="n">fits</span>
+<span class="o">./</span><span class="n">c39008aa52f54b9e94335b566743af0c</span><span class="o">/</span><span class="n">DES0305</span><span class="o">-</span><span class="mi">3415</span><span class="o">/</span><span class="n">DESJ030510</span><span class="o">.</span><span class="mi">9606</span><span class="o">-</span><span class="mf">341521.6000</span><span class="n">_irg_lupton</span><span class="o">.</span><span class="n">png</span>
+<span class="o">./</span><span class="n">c39008aa52f54b9e94335b566743af0c</span><span class="o">/</span><span class="n">DES0305</span><span class="o">-</span><span class="mi">3415</span><span class="o">/</span><span class="n">DESJ030510</span><span class="o">.</span><span class="mi">9606</span><span class="o">-</span><span class="mf">341521.6000</span><span class="n">_irg_stiff</span><span class="o">.</span><span class="n">png</span>
+<span class="o">./</span><span class="n">c39008aa52f54b9e94335b566743af0c</span><span class="o">/</span><span class="n">DES0305</span><span class="o">-</span><span class="mi">3415</span><span class="o">/</span><span class="n">DESJ030510</span><span class="o">.</span><span class="mi">9606</span><span class="o">-</span><span class="mf">341521.6000</span><span class="n">_r</span><span class="o">.</span><span class="n">fits</span>
+<span class="o">./</span><span class="n">c39008aa52f54b9e94335b566743af0c</span><span class="o">/</span><span class="n">BTL_C39008AA52F54B9E94335B566743AF0C</span><span class="o">.</span><span class="n">csv</span>
+<span class="o">./</span><span class="n">c39008aa52f54b9e94335b566743af0c</span><span class="o">/</span><span class="n">BulkThumbs_20200706</span><span class="o">-</span><span class="mf">152133.</span><span class="n">log</span>
+<span class="o">./</span><span class="n">c39008aa52f54b9e94335b566743af0c</span><span class="o">/</span><span class="n">BulkThumbs_20200706</span><span class="o">-</span><span class="mi">152133</span><span class="n">_SUMMARY</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="api.html" class="btn btn-neutral float-right" title="API Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apps.html" class="btn btn-neutral float-left" title="DESaccess Apps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

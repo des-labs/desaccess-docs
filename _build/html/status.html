@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Job Status &mdash; DESaccess  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> DESaccess
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="apps.html">DESaccess Apps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Example Scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DESaccess</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Job Status</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/status.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="job-status">
+<h1>Job Status<a class="headerlink" href="#job-status" title="Permalink to this headline">¶</a></h1>
+<p>The <strong>Job Status</strong> column, labeled by the icon, indicates if a job
+is in progress , is complete , or has failed .</p>
+<p>The <strong>Job Type</strong> column, labeled by the icon, indicates the type
+of the job. For most people this is either a database query or a
+cutout type.</p>
+<p>Jobs may be sorted on multiple columns. For example, you may want
+to list jobs in progress at the top of the list, where they are
+then sorted by job type. Alternatively, you may want to see all of
+you database query jobs first, sorted by status so you can see all
+the query jobs still in progress at the top.</p>
+<img alt="_images/status-job-status.png" class="align-center" src="_images/status-job-status.png" />
+<p><strong>Filter the job list</strong> by typing part of the desired job name or
+ID into the column header text fields. Job <strong>IDs</strong> are unique, but
+the same job <strong>name</strong> can be applied to multiple jobs, providing a
+way to filter your job list to show a group of related jobs.</p>
+<img alt="_images/status-filter.png" class="align-center" src="_images/status-filter.png" />
+<p>Job details and results are accessed by clicking the name or ID in
+the list. The dialog contains a button to open a listing of the
+generated output files for download (see below for details about
+programmatic access to job output files). If the job is a
+<strong>cutout</strong> job, and there color image files were generated using
+the Lupton or STIFF methods, an image gallery is provided for easy
+image browsing. If the job is a <strong>database query</strong> job, the job
+query text is displayed with a button to conveniently copy the
+query back into the editor on the DB Access page.</p>
+<img alt="_images/status-results-dialog.png" class="align-center" src="_images/status-results-dialog.png" />
+<img alt="_images/status-image-gallery.png" class="align-center" src="_images/status-image-gallery.png" />
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
