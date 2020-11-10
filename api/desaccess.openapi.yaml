@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: DESaccess API
-  description: 'DESaccess API provides a RESTful interface to access Dark Energy Survey data.'
+  description: 'DESaccess API provides a RESTful interface to access Dark Energy Survey data. ([Return to docs.](..))'
   version: 3.1.0
 servers:
 - url: https://des.ncsa.illinois.edu/desaccess/api
