@@ -100,6 +100,14 @@ html_style = 'css/custom.css'
 
 html_logo = 'images/DESDM_logo.png'
 
+# Enable the "Edit on GitHub" links
+html_context = {
+  'display_github': True,
+  'github_user': 'des-labs',
+  'github_repo': 'desaccess-docs',
+  'github_version': 'master/',
+}
+
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #
