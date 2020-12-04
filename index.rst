@@ -14,5 +14,3 @@ DESaccess is a collection of apps and services from the `DES Labs <https://desla
    apps
    examples
    api
-
-.. include:: api.rst
