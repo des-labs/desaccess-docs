@@ -3,16 +3,20 @@ name: desaccess-docs-build-dev
 on:
   push:
     branches:
-      - 'master'
+      - 'dev'
     paths:
     - '**'
 
 jobs:
-  sphinx-build:
-    runs-on: ubuntu-20.04
+  build-image:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
@@ -42,15 +46,6 @@ jobs:
         run: |
           make html
           cp -r api _build/html/
-
-  image-build:
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: recursive
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
