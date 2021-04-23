@@ -39,8 +39,9 @@ jobs:
         run: python3 -m pip install -r ./.github/workflows/sphinx-requirements.txt
 
       - name: Run Sphinx build
-        run: make html
-        run: cp -r api _build/html/
+        run: |
+          make html
+          cp -r api _build/html/
 
   image-build:
     runs-on: ubuntu-latest
