@@ -57,7 +57,7 @@ jobs:
         name: Cache Docker layers
         uses: actions/cache@v2
         with:
-          path: /tmp/.buildx-cache/dev
+          path: /tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
@@ -76,18 +76,18 @@ jobs:
         with:
           context: .
           push: true
-          tags: hub.ncsa.illinois.edu/des/desaccess-docs:latest
+          tags: hub.ncsa.illinois.edu/des/desaccess-docs:dev
           # From https://github.com/docker/build-push-action/blob/master/docs/advanced/cache.md#github-cache
-          cache-from: type=local,src=/tmp/.buildx-cache/dev
-          cache-to: type=local,dest=/tmp/.buildx-cache-new/dev
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
       -
         # Temp fix
         # https://github.com/docker/build-push-action/issues/252
         # https://github.com/moby/buildkit/issues/1896
         name: Move cache
         run: |
-          rm -rf /tmp/.buildx-cache/dev
-          mv /tmp/.buildx-cache-new/dev /tmp/.buildx-cache/dev
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

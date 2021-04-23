@@ -1,18 +1,22 @@
-name: desaccess-docs-build-dev
+name: desaccess-docs-build
 
 on:
   push:
     branches:
-      - 'dev'
+      - 'master'
     paths:
     - '**'
 
 jobs:
-  sphinx-build:
-    runs-on: ubuntu-20.04
+  build-image:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+          
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
@@ -42,15 +46,6 @@ jobs:
         run: |
           make html
           cp -r api _build/html/
-
-  image-build:
-    runs-on: ubuntu-latest
-    steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: recursive
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -81,7 +76,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: hub.ncsa.illinois.edu/des/desaccess-docs:dev
+          tags: hub.ncsa.illinois.edu/des/desaccess-docs:latest
           # From https://github.com/docker/build-push-action/blob/master/docs/advanced/cache.md#github-cache
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
