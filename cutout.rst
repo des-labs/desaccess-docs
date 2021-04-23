@@ -4,6 +4,9 @@ Cutout Service
 The Cutout Service allows you to download raw or color image data based
 on input coordinates and areal dimensions.
 
+.. note::
+   See the :ref:`cutout-service-api-details` for complete details about how to specify options.
+
 Select the data release tag associated with the data set you wish
 to access. In the text box, enter the positions in the sky that
 designate the centers of your cutout images in the form of a
@@ -13,25 +16,19 @@ RA/DEC sky coordinates or Coadd tile ID. Columns can be in any
 order. Omitted values will be set to the default parameter values
 you specify using the other form elements as described below.
 
-This example shows all possible columns you can include:
-
-::
+This example shows all possible columns you can include:::
 
    RA,DEC,COADD_OBJECT_ID,XSIZE,YSIZE,COLORS_FITS,RGB_STIFF_COLORS,RGB_LUPTON_COLORS,RGB_MINIMUM,RGB_STRETCH,RGB_ASINH,MAKE_FITS,MAKE_RGB_STIFF,MAKE_RGB_LUPTON
    46.275669,-34.256000,,0.90,1.30,g,gry;riy,,,,,true,false,true
    ,,61407409,1.1,0.8,z,,riy,0.9,40.0,11.0,true,,true
 
 This example shows the minimum columns you must include when
-specifying positions only by coordinates:
-
-::
+specifying positions only by coordinates::
 
    RA,DEC
    46.275669,-34.256000
 
-or only by Coadd ID
-
-::
+or only by Coadd ID::
 
    COADD_OBJECT_ID
    61407409

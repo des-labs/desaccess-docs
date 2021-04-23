@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: DESaccess API
   description: 'DESaccess API provides a RESTful interface to access Dark Energy Survey data. ([Return to docs.](..))'
-  version: 3.1.0
+  version: 3.2.0
 servers:
 - url: https://des.ncsa.illinois.edu/desaccess/api
   description: Interface for the general public
@@ -178,6 +178,10 @@ paths:
                   type: string
                   description: Color bands to output (string value containing characters from the set 'grizy')
                   example: "grizy"
+                discard_fits_files:
+                  type: boolean
+                  description: Discard FITS files that are only created in order to produce requested RGB images. FITS files that are explicitly requested are retained.
+                  example: false
                 make_rgb_stiff:
                   type: boolean
                   description: Generate cutout data files in RGB color using STIFF format

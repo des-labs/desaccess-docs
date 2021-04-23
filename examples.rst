@@ -4,7 +4,7 @@ Example Scripts
 Jupyter Notebooks
 ---------------------------------
 
-* `DESaccess API Examples <_static/DESaccess_API_example.ipynb>`_
+* `DESaccess API Examples <https://github.com/des-labs/desaccess-docs/blob/master/_static/DESaccess_API_example.ipynb>`_ (`direct download <_static/DESaccess_API_example.ipynb>`_)
 
 Download job files
 ---------------------------------
